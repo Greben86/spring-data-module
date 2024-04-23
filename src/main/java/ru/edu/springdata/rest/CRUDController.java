@@ -25,18 +25,18 @@ public class CRUDController {
         return crudRepository.getAllBooks();
     }
 
-    @PostMapping(value = "/book/add", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Book addBook(@RequestBody Book inputBook) {
+    @PostMapping(value = "/book/add", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public int addBook(@RequestBody Book inputBook) {
         return crudRepository.addBook(inputBook);
     }
 
-    @PutMapping(value = "/book/update", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Book updateBook(@RequestBody Book inputBook) {
+    @PutMapping(value = "/book/update", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public int updateBook(@RequestBody Book inputBook) {
         return crudRepository.updateBook(inputBook);
     }
 
-    @DeleteMapping(value = "/book/{id}/delete", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Book deleteBook(@PathVariable("id") Long id) {
+    @DeleteMapping(value = "/book/{id}/delete")
+    public int deleteBook(@PathVariable("id") Long id) {
         return crudRepository.deleteBook(id);
     }
 }
