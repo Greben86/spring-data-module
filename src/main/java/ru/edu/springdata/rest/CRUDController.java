@@ -17,6 +17,12 @@ public class CRUDController {
 
     private final JPARepositoryImpl jpaRepository;
 
+    /**
+     * Поиск книги по идентификатору
+     *
+     * @param id идентификатор
+     * @return книга
+     */
     @GetMapping(value = "/book/{id}/get", produces = MediaType.APPLICATION_JSON_VALUE)
     public Book getBook(@PathVariable("id") Long id) {
         return jpaRepository.findById(id).orElse(null);
@@ -25,6 +31,11 @@ public class CRUDController {
     @GetMapping(value = "/book/get/all", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Book> getBooks() {
         return jpaRepository.findAll();
+    }
+
+    @GetMapping(value = "/book/get/category", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Book> getBooksByCategory(@RequestParam("category") String category) {
+        return jpaRepository.getAllBooksByCategory(category);
     }
 
     @PostMapping(value = "/book/add", consumes = MediaType.APPLICATION_JSON_VALUE)

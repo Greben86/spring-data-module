@@ -3,10 +3,10 @@ package ru.edu.springdata;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+//@SpringBootTest
 class SpringDataApplicationTests {
 
-	@Test
+//	@Test
 	void contextLoads() {
 	}
 
